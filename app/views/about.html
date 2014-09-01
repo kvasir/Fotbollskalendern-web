@@ -1,7 +1,7 @@
 <h2>Kalender</h2>
 
 <table class="table table-hover">
-    <tr ng-repeat="game in games | orderBy:sortBy">
+    <tr ng-click="matchInfo(game)" ng-repeat="game in games | orderBy:sortBy">
         <td>{{game.time}}</td>
         <td>{{game.homeTeam}}</td>
         <td>{{game.awayTeam}}</td>

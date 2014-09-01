@@ -25,7 +25,7 @@ angular
 			homeTeam: 'Marcus pojkar',
 			awayTeam: 'Jerkers xD-team',
 			time: '17:00',
-			league: 'fikaligan'
+			league: 'Fikaligan'
 		},
 		{
 			id: 3,

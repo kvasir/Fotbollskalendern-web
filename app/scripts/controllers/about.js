@@ -8,7 +8,12 @@
  * Controller of the fotbollskalendernWebApp
  */
 angular.module('fotbollskalendernWebApp')
-  .controller('AboutCtrl', function ($scope, MatchInfo) {
-      $scope.games = MatchInfo;
-      $scope.sortBy = 'time';
-  });
+    .controller('AboutCtrl', function ($scope, MatchInfo, $location) {
+        $scope.games = MatchInfo;
+        $scope.sortBy = 'time';
+
+        $scope.matchInfo = function(game){
+		    console.log(game.id);
+            $location.path('match').search('matchId', game.id);
+        };
+    });
