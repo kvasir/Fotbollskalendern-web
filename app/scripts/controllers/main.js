@@ -13,7 +13,7 @@ angular.module('fotbollskalendernWebApp')
 
 		$scope.matchInfo = function(game){
 			console.log(game.id);
-			$location.path("match").search('matchId', game.id);
+			$location.path('match').search('matchId', game.id);
 		};
 
 		$scope.sortBy = 'time';
