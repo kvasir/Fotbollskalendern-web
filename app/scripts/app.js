@@ -10,9 +10,10 @@
  */
 angular
   .module('fotbollskalendernWebApp', [
-    'ngRoute'
+    'ngRoute',
+    'ui.bootstrap'
   ])
-	.value('MatchInfo', [
+	.value('MatchInfo',[
 		{
 		    id: 1,
 		    homeTeam: 'Jps-dreamteam',
@@ -25,7 +26,7 @@ angular
 		    homeTeam: 'Marcus pojkar',
 		    awayTeam: 'Jerkers xD-team',
 		    time: '17:00',
-		    league: 'Fikaligan'
+		    league: 'fikaligan'
 		},
 		{
 		    id: 3,
@@ -80,10 +81,10 @@ angular
           templateUrl: 'views/about.html',
           controller: 'AboutCtrl'
       })
-			.when('/match', {
-			    templateUrl: 'views/match.html',
-			    controller: 'MatchCtrl'
-			})
+	  .when('/match', {
+	      templateUrl: 'views/match.html',
+	      controller: 'MatchCtrl'
+	  })
       .otherwise({
           redirectTo: '/'
       });

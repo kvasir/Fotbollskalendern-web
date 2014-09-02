@@ -1,27 +1,10 @@
 <h2>Idag</h2>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Tid</th>
-      <th>Hemmalag</th>
-      <th>Bortalag</th>
-      <th>Liga</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-click="matchInfo(game)" ng-repeat="game in games | orderBy:sortBy">
-      <td>
-        {{game.time}}
-      </td>
-      <td>
-        {{game.homeTeam}}
-      </td>
-      <td>
-        {{game.awayTeam}}
-      </td>
-      <td>
-        {{game.league}}
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+<carousel interval="5000">
+    <slide ng-repeat="game in games" active="slide.active">
+    <div class="col-xs-12"><span>{{game.time}}</span></div>
+    <div class="col-xs-6"><span>{{game.homeTeam}}</span></div>
+    <div class="col-xs-6"><span>{{game.awayTeam}}</span></div>
+    <div class="col-xs-12"><span>{{game.league}}</span></div>
+    </slide>
+</carousel>
