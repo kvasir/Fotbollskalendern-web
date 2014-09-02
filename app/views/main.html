@@ -1,7 +1,7 @@
 <h2>Idag</h2>
 
 <carousel interval="5000">
-    <slide ng-repeat="game in games" active="slide.active">
+    <slide ng-click="matchInfo(game)" ng-repeat="game in games" active="slide.active">
     <div class="col-xs-12"><span>{{game.time}}</span></div>
     <div class="col-xs-6"><span>{{game.homeTeam}}</span></div>
     <div class="col-xs-6"><span>{{game.awayTeam}}</span></div>
