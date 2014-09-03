@@ -1,3 +1,7 @@
+.gameCursor:hover{
+    cursor: pointer;
+}
+
 /* Space out content a bit */
 body {
   padding-top: 20px;
@@ -34,7 +38,7 @@ body {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 1000px;
   }
 }
 .container-narrow > hr {
