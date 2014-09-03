@@ -1,10 +1,13 @@
-<h2>Idag</h2>
-
 <carousel interval="5000">
-    <slide ng-click="matchInfo(game)" ng-repeat="game in games" active="slide.active">
-    <div class="col-xs-12"><span>{{game.time}}</span></div>
-    <div class="col-xs-6"><span>{{game.homeTeam}}</span></div>
-    <div class="col-xs-6"><span>{{game.awayTeam}}</span></div>
-    <div class="col-xs-12"><span>{{game.league}}</span></div>
+    <slide ng-repeat="day in days" active="slide.active">    
+    <h2>DATUM</h2>
+    <div ng-click="matchInfo(game)" ng-repeat="game in day | orderBy:sortBy">
+        <div class="col-xs-12"><span>{{game.time}}</span></div>
+        <div class="col-xs-6"><span>{{game.homeTeam}}</span></div>
+        <div class="col-xs-6"><span>{{game.awayTeam}}</span></div>
+        <div class="col-xs-12"><span>{{game.league}}</span></div>
+        </br>
+        </br>
+    </div>
     </slide>
 </carousel>
