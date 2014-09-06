@@ -10,8 +10,8 @@
     </thead>
     <tbody>
         <tr class="hoverPointer" ng-click="action(game)" ng-repeat="game in games | orderBy:'time'">
-            <td ng-if="includeDate">{{game.date}}</td>
-            <td>{{game.time}}</td>
+            <td ng-if="includeDate">{{game.date }} </td>
+            <td>{{game.date | date:'HH:mm'}}</td>
             <td>{{game.homeTeam}}</td> 
             <td>{{game.awayTeam}}</td>
             <td>{{game.league}}</td>

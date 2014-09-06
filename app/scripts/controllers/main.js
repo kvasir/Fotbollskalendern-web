@@ -19,10 +19,12 @@ angular.module('fotbollskalendernWebApp')
             });
         };
         $scope.allDays = [];
-        gamesFromDay("2014-09-01");
-        gamesFromDay("2014-09-02");
-        gamesFromDay("2014-09-03");
-        gamesFromDay("2014-09-04");
+        var days = 30;
+        var today = new Date();
+        for (var i = 0; i < days; i++) {
+            gamesFromDay(today.toLocaleDateString());
+            today.setDate(today.getDate() + 1);
+        };
         $scope.matchInfo = function (game) {
             console.log(game.id);
             $location.path('match').search('matchId', game.id);
