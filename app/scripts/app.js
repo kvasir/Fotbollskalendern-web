@@ -13,64 +13,7 @@ angular
     'ngRoute',
     'ui.bootstrap'
   ])
-	.value('MatchInfo',[
-		{
-		    id: 1,
-		    homeTeam: 'Jps-dreamteam',
-		    awayTeam: 'Martins heroes',
-		    time: '21:00',
-		    league: 'Golden division'
-		},
-		{
-		    id: 2,
-		    homeTeam: 'Marcus pojkar',
-		    awayTeam: 'Jerkers xD-team',
-		    time: '17:00',
-		    league: 'fikaligan'
-		},
-		{
-		    id: 3,
-		    homeTeam: 'The craigesters',
-		    awayTeam: 'Core service',
-		    time: '19:00',
-		    league: 'Superettan'
-		},
-		{
-		    id: 4,
-		    homeTeam: 'Barcelona',
-		    awayTeam: 'Real Madrid',
-		    time: '06:00',
-		    league: 'Superettan'
-		},
-		{
-		    id: 5,
-		    homeTeam: 'Podlaget',
-		    awayTeam: 'Arsenal',
-		    time: '09:00',
-		    league: 'Superettan'
-		},
-		{
-		    id: 6,
-		    homeTeam: 'Dream Team',
-		    awayTeam: 'Complexity',
-		    time: '19:00',
-		    league: 'Golden division'
-		},
-		{
-		    id: 7,
-		    homeTeam: 'Djurgården',
-		    awayTeam: 'Lycksele IF',
-		    time: '19:00',
-		    league: 'Golden division'
-		},
-		{
-		    id: 8,
-		    homeTeam: 'Tanterna plan 5',
-		    awayTeam: 'Supportcenter',
-		    time: '19:00',
-		    league: 'Fikaligan'
-		}
-	])
+	.value()
   .config(function ($routeProvider, $locationProvider) {
       $routeProvider
       .when('/', {
@@ -85,8 +28,12 @@ angular
 	      templateUrl: 'views/match.html',
 	      controller: 'MatchCtrl'
 	  })
+	  .when('/team', {
+	      templateUrl: 'views/team.html',
+	      controller: 'TeamCtrl'
+	  })
       .otherwise({
           redirectTo: '/'
       });
-      $locationProvider.html5Mode(true);
+      //$locationProvider.html5Mode(true);
   });
