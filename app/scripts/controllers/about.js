@@ -128,6 +128,7 @@ var day2 = [
         $scope.games = MatchInfo;
         $scope.sortBy = 'time';
 
+
         $scope.nextGames = day2;
         $scope.nextNextGames = day3;
 
