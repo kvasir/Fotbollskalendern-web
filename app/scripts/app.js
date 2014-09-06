@@ -28,6 +28,10 @@ angular
 	      templateUrl: 'views/match.html',
 	      controller: 'MatchCtrl'
 	  })
+	  .when('/team', {
+	      templateUrl: 'views/team.html',
+	      controller: 'TeamCtrl'
+	  })
       .otherwise({
           redirectTo: '/'
       });

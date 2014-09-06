@@ -11,7 +11,12 @@ angular.module('fotbollskalendernWebApp')
   .controller('MatchCtrl', function ($scope, matchService, $location) {
       $scope.id = $location.search().matchId;
       $scope.match = {};
+      console.log($scope.id);
       matchService.getGameById($scope.id).then(function (game) {
           $scope.match = game;
       });
+
+      $scope.teamInfo = function (team) {
+          $location.path('team').search('teamName', team);
+      };
   });

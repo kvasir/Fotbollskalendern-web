@@ -3,10 +3,10 @@
         <h1> {{match.time}}: {{match.homeTeam}} vs {{match.awayTeam}}</h1>
     </div>
     <div class="col-md-6">
-        <h4>{{match.homeTeam}}</h4>
+        <h4><a href="" ng-click="teamInfo(match.homeTeam)">{{match.homeTeam}}</a></h4>
     </div>
-    <div class="col-md-6 ">
-        <h4 class="pull-right">{{match.awayTeam}}</h4>
+    <div class="col-md-6">
+        <h4 class="text-right"><a href="" ng-click="teamInfo(match.awayTeam)">{{match.awayTeam}}</a></h4>
     </div>
 </div>
 

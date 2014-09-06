@@ -1,6 +1,6 @@
 
 
-<div class="gameCursor" ng-click="matchInfo(game)" ng-repeat="game in games | orderBy:sortBy">
+<div class="hoverPointer" ng-click="matchInfo(game)" ng-repeat="game in games | orderBy:sortBy">
     <div class="panel panel-info">
         <div class="panel-heading"> {{game.time}}</div>
         <div class="panel-body">
@@ -11,22 +11,6 @@
 <div class="row" ng-repeat="day in allDays">
     <div class="col-xs-12">
         <h1>{{ day.date | date:'EEEE' }}</h1>
-        <table class="table table-hover">
-            <thead>
-            <tr>
-              <th class="col-xs-1">Tid</th>
-              <th class="col-xs-4">Hemmalag</th>
-              <th class="col-xs-4">Bortalag</th>
-              <th class="col-xs-3">Liga</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="gameCursor" ng-click="matchInfo(game)" ng-repeat="game in day.games | orderBy:sortBy">
-                <td>{{game.time}}</td>
-                <td>{{game.homeTeam}}</td>
-                <td>{{game.awayTeam}}</td>
-                <td>{{game.league}}</td>
-            </tr>
-        </table>
+        <games-list include-date="false" action="matchInfo" games="day.games"></games-list>
     </div>
 </div>
