@@ -1,23 +1,8 @@
-<<<<<<< HEAD
-<carousel interval="5000">
-    <slide ng-repeat="day in days" active="slide.active">    
-    <h2>DATUM</h2>
-    <div class="gameCursor" ng-click="matchInfo(game)" ng-repeat="game in day | orderBy:sortBy">
-        <div class="panel panel-info">
-            <div class="panel-heading"> {{game.time}}</div>
-            <div class="panel-body">
-                <span class="pull-left">{{game.homeTeam}}</span>
-                <span class="pull-right">{{game.awayTeam}}</span>
-            </div>
-=======
-
-
 <div class="hoverPointer" ng-click="matchInfo(game)" ng-repeat="game in games | orderBy:sortBy">
     <div class="panel panel-info">
         <div class="panel-heading"> {{game.time}}</div>
         <div class="panel-body">
         <span>{{game.homeTeam}}  vs  {{game.awayTeam}}</span>
->>>>>>> origin/master
         </div>
     </div>
 </div>
