@@ -11,7 +11,7 @@
 angular.module('fotbollskalendernWebApp')
     .controller('MainCtrl', function ($scope, $location, matchService) {
         var gamesFromDay = function (date) {
-            matchService.getGames(date).then(function (result) {
+            matchService.getGamesByDate(date).then(function (result) {
                 $scope.allDays.push({
                     date: date,
                     games: result
