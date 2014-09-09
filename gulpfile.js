@@ -4,8 +4,14 @@ var gulp = require('gulp'),
 
 
 gulp.task('watch', function () {
-  gulp.watch(['./app/*.html'], ['html']);
+  gulp.watch(['./app/**/*.html', './app/**/*.js', './app/**/*.css'], ['html']);
 });
+
+gulp.task('html', function () {
+  gulp.src('./app/**/*.html','./app/**/*.js', './app/**/*.css')
+    .pipe(connect.reload());
+});
+
 
 gulp.task('connectDev', function () {
   connect.server({
