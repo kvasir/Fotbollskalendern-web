@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="hoverPointer" ng-click="matchInfo(game)" ng-repeat="game in games | orderBy:'date':false">
+                <tr class="hoverPointer" ng-click="matchInfo(game)" ng-repeat="game in games | futureDates |orderBy:'date':false">
                     <td>{{game.date | date:'dd/MM yyyy' }} </td>
                     <td>{{game.date | date:'HH:mm'}}</td>
                     <td ng-if="game.homeTeam == team" class="text-danger">{{game.homeTeam}}</td>
