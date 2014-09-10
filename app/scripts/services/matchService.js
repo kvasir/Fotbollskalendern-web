@@ -8,16 +8,22 @@ angular.module('fotbollskalendernWebApp').factory('matchService', function ($htt
         $http.get("mock_data/ligue1.json")
     ]);
 
+    var leagues = ['Premier league', 'Bundesliga', 'Hollänskaligan', 'La liga', 'Serie A', 'Franskaligan'];
+
     return {
         getGamesByDate: function (date) {
             var games = [];
             var gameResult = $q.defer();
             all.then(function (results) {
-                results.forEach(function (result) {
+                results.forEach(function (result, index) {
                     var allGames = result.data;
+                    var iterator = index;
                     allGames.forEach(function (game) {
                         if (game.date.indexOf(date) === 0)
-                            games.push(game);
+                            games.push({
+                                game: game,
+                                league: leagues[iterator]
+                            });
                     });
                 });
                 gameResult.resolve(games);
@@ -31,9 +37,9 @@ angular.module('fotbollskalendernWebApp').factory('matchService', function ($htt
             all.then(function (results) {
                 results.forEach(function (result) {
                     var allGames = result.data;
-                    allGames.forEach(function(game){
-                        if (game.id === id) 
-                        target = game; 
+                    allGames.forEach(function (game) {
+                        if (game.id === id)
+                            target = game;
                     });
                 });
                 gameResult.resolve(target);
