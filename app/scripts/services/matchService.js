@@ -1,14 +1,35 @@
 angular.module('fotbollskalendernWebApp').factory('matchService', function ($http, $q) {
-    var all = $q.all([
-        $http.get("mock_data/premierleague.json"),
-        $http.get("mock_data/bundesliga.json"),
-        $http.get("mock_data/holland.json"),
-        $http.get("mock_data/laliga.json"),
-        $http.get("mock_data/seriea.json"),
-        $http.get("mock_data/ligue1.json")
-    ]);
-
-    var leagues = ['Premier league', 'Bundesliga', 'Hollänskaligan', 'La liga', 'Serie A', 'Franskaligan'];
+    var allLeagues = [
+        {
+            name: 'Premier league',
+            url: 'mock_data/premierleague.json'
+        },
+        {
+            name: 'La liga',
+            url: 'mock_data/laliga.json'
+        },
+        {
+            name: 'Bundesliga',
+            url: 'mock_data/bundesliga.json'
+        },
+        {
+            name: 'Serie A',
+            url: 'mock_data/seriea.json'
+        },
+        {
+            name: 'Franskaligan',
+            url: 'mock_data/ligue1.json'
+        },
+        {
+            name: 'Hollänskaligan',
+            url: 'mock_data/holland.json'
+        },
+    ];
+    var requests = [];
+    allLeagues.forEach(function (league) {
+        requests.push($http.get(league.url));
+    });
+    var all = $q.all(requests);
 
     return {
         getGamesByDate: function (date) {
@@ -22,7 +43,7 @@ angular.module('fotbollskalendernWebApp').factory('matchService', function ($htt
                         if (game.date.indexOf(date) === 0)
                             games.push({
                                 game: game,
-                                league: leagues[iterator]
+                                league: allLeagues[iterator].name
                             });
                     });
                 });
@@ -46,6 +67,7 @@ angular.module('fotbollskalendernWebApp').factory('matchService', function ($htt
             });
 
             return gameResult.promise;
-        }
+        },
+        allLeagues: allLeagues
     }
 });

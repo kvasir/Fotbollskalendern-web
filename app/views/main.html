@@ -1,8 +1,8 @@
 <select ng-model="selectedLeague">
     <option value="">Alla</option>
-    <option value="La liga">La liga</option>
-    <option value="Premier league">Premiere leage</option>
+    <option ng-repeat="league in allLeagues" value="{{league.name}}">{{league.name}}</option>
 </select>
+
 <div class="row" ng-repeat="day in allDays">
     <div class="col-xs-12">
         <h1>{{ day.date | date:'EEEE' }}</h1>

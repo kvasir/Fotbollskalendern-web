@@ -17,15 +17,16 @@ angular.module('fotbollskalendernWebApp')
                     games: result
                 });
             });
-        }; 
+        };
+        $scope.allLeagues = matchService.allLeagues;
         $scope.allDays = [];
         var days = 30;
         var today = new Date();
         var options = {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit'
-        };
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        };
         for (var i = 0; i < days; i++) {
             gamesFromDay(today.toLocaleDateString('sv-SE', options));
             today.setDate(today.getDate() + 1);
