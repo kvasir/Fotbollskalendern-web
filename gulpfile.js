@@ -19,12 +19,12 @@ gulp.task('connectDev', function () {
     port: 9000,
     livereload: true,
     middleware: function (connect) {
-            return [
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              )
-            ];
+        return [
+            connect().use(
+            '/bower_components',
+            connect.static('./bower_components')
+            )
+        ];
     }
   });
 });
