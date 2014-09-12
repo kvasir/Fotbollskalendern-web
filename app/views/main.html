@@ -1,6 +1,11 @@
+<select ng-model="selectedLeague">
+    <option value="">Alla</option>
+    <option value="La liga">La liga</option>
+    <option value="Premier league">Premiere leage</option>
+</select>
 <div class="row" ng-repeat="day in allDays">
     <div class="col-xs-12">
         <h1>{{ day.date | date:'EEEE' }}</h1>
-        <games-list include-date="false" action="matchInfo" games="day.games"></games-list>
+        <games-list include-date="false" action="matchInfo" games="day.games | filter:selectedLeague"></games-list>
     </div>
 </div>
