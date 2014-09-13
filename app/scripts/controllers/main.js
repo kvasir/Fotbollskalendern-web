@@ -9,7 +9,7 @@
  */
 
 angular.module('fotbollskalendernWebApp')
-    .controller('MainCtrl', function ($scope, $location, matchService) {
+    .controller('MainCtrl', function ($scope, $location, matchService, Leagues) {
         var gamesFromDay = function (date) {
             matchService.getGamesByDate(date).then(function (result) {
                 $scope.allDays.push({
@@ -18,7 +18,7 @@ angular.module('fotbollskalendernWebApp')
                 });
             });
         };
-        $scope.allLeagues = matchService.allLeagues;
+        $scope.allLeagues = Leagues;
         $scope.allDays = [];
         var days = 30;
         var today = new Date();
