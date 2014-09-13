@@ -16,7 +16,7 @@
             </thead>
             <tbody>
                 <tr class="hoverPointer" ng-click="matchInfo(game)" ng-repeat="game in games | futureDates |orderBy:'date':false">
-                    <td>{{game.date | date:'dd/MM yyyy' }} </td>
+                    <td>{{game.date | date:'d MMMM yyyy' }} </td>
                     <td ng-class="{'text-primary': game.homeTeam === team}">{{game.homeTeam}}</td>
                     <td ng-class="{'text-primary': game.awayTeam === team}">{{game.awayTeam}}</td>
                     <td>{{game.date | date:'HH:mm'}}</td>
