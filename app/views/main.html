@@ -5,7 +5,8 @@
 </div>
 <div ng-class="{'jumbotron': allDays[0] === day}" class="row" ng-repeat="day in allDays">
     <div class="col-xs-12">
-        <h1>{{ day.date | date:'EEEE' }}</h1>
+        <h1 ng-if="allDays[0] !== day">{{ day.date | date:'EEEE' }}</h1>
+        <h1 ng-if="allDays[0] === day">Idag</h1>
         <table class="table table-hover">
             <thead ng-if="allDays[0] !== day">
                 <tr class="text-center">

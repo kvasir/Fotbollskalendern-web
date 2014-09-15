@@ -1,6 +1,11 @@
 .hoverPointer:hover{
     cursor: pointer;
 }
+
+.jumbotron > div >h1{
+    margin-bottom: 30px;    
+}
+
 .searchButton{
     margin: 5px;
     margin-bottom: 15px;

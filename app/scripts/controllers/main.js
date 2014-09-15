@@ -18,14 +18,17 @@ angular.module('fotbollskalendernWebApp')
                 });
             });
         };
+
         $scope.leagues = Leagues;
+
         $scope.filters = [];
         Leagues.forEach(function (league) {
             $scope.filters.push(league.name);
         });
-        console.log($scope.filters);
+
         $scope.allLeagues = Leagues;
         $scope.allDays = [];
+
         var days = 7;
         var today = new Date();
         var options = {
@@ -33,14 +36,17 @@ angular.module('fotbollskalendernWebApp')
             month: '2-digit',
             day: '2-digit'
         };
+
         for (var i = 0; i < days; i++) {
             gamesFromDay(today.toLocaleDateString('sv-SE', options));
             today.setDate(today.getDate() + 1);
         };
+
         $scope.matchInfo = function (game) {
             console.log(game.id);
             $location.path('match').search('matchId', game.id);
         };
+
         $scope.filterMatch = function (liga) {
             if ($scope.filters.indexOf(liga) != -1)
                 $scope.filters.splice($scope.filters.indexOf(liga), 1);
