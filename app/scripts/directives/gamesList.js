@@ -6,7 +6,9 @@ angular.module('fotbollskalendernWebApp')
             scope: {
                 games: '=',
                 action: '=',
-                includeDate: '='
+                includeDate: '=',
+                day: '=',
+                allDays: '='
             }
         };
 
