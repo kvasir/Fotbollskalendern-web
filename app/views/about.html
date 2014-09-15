@@ -3,9 +3,9 @@
         <label class="btn btn-default active searchButton" ng-click="filterMatch(league.name)" ng-repeat="league in leagues" btn-checkbox> {{ league.name }}</label>
     </div>
 </div>
-<div class="row" ng-repeat="day in allDays">
+<div class="row" ng-repeat="day in allDays" ng-if="day.games[0]">
     <div class="col-xs-12">
-        <h1>{{ day.date | date:'EEEE' }}</h1>
+        <h1>{{ day.date | date:'dd MMMM' }}</h1>
         <table class="table table-hover">
             <thead>
                 <tr class="text-center">
