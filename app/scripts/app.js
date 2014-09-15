@@ -52,4 +52,16 @@ angular
           }
           return filtered_list;
       }
+  })
+  .filter('filterArray', function () {
+      return function (matches, filters) {
+
+          var filtered_list = [];
+          for (var i = 0; i < matches.length; i++) {
+              if (filters.indexOf(matches[i].league) != -1) {
+                  filtered_list.push(matches[i]);
+              }
+          }
+          return filtered_list;
+      }
   });
