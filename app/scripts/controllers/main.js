@@ -18,9 +18,15 @@ angular.module('fotbollskalendernWebApp')
                 });
             });
         };
+        $scope.leagues = Leagues;
+        $scope.filters = [];
+        Leagues.forEach(function (league) {
+            $scope.filters.push(league.name);
+        });
+        console.log($scope.filters);
         $scope.allLeagues = Leagues;
         $scope.allDays = [];
-        var days = 30;
+        var days = 7;
         var today = new Date();
         var options = {
             year: 'numeric',
@@ -35,5 +41,10 @@ angular.module('fotbollskalendernWebApp')
             console.log(game.id);
             $location.path('match').search('matchId', game.id);
         };
-        $scope.sortBy = 'time';
+        $scope.filterMatch = function (liga) {
+            if ($scope.filters.indexOf(liga) != -1)
+                $scope.filters.splice($scope.filters.indexOf(liga), 1);
+            else
+                $scope.filters.push(liga);
+        };
     });
