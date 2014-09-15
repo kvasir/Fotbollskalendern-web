@@ -1,7 +1,10 @@
 .hoverPointer:hover{
     cursor: pointer;
 }
-
+.searchButton{
+    margin: 5px;
+    margin-bottom: 15px;
+}
 /* Space out content a bit */
 body {
   padding-top: 20px;

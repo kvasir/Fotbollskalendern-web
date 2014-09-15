@@ -1,11 +1,8 @@
-
-<div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-default active" ng-click="filterMatch(league.name)" ng-repeat="league in leagues">
-        <input type="checkbox" checked> {{ league.name }}
-    </label>
+<div class="row text-center">
+    <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-default active searchButton" ng-click="filterMatch(league.name)" ng-repeat="league in leagues" btn-checkbox> {{ league.name }}</label>
+    </div>
 </div>
-<br>
-<br>
 <div ng-class="{'jumbotron': allDays[0] === day}" class="row" ng-repeat="day in allDays">
     <div class="col-xs-12">
         <h1>{{ day.date | date:'EEEE' }}</h1>
