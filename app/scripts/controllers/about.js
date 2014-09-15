@@ -7,7 +7,7 @@
  * # AboutCtrl
  * Controller of the fotbollskalendernWebApp
  */
-    angular.module('fotbollskalendernWebApp')
+angular.module('fotbollskalendernWebApp')
     .controller('AboutCtrl', function ($scope, matchService, $location, Leagues) {
         var gamesFromDay = function (date) {
             matchService.getGamesByDate(date).then(function (result) {
@@ -18,6 +18,13 @@
             });
         };
         $scope.allLeagues = Leagues;
+        $scope.leagues = Leagues;
+
+        $scope.filters = [];
+        Leagues.forEach(function (league) {
+            $scope.filters.push(league.name);
+        });
+        
         $scope.allDays = [];
         var days = 30;
         var today = new Date();
@@ -35,4 +42,11 @@
             $location.path('match').search('matchId', game.id);
         };
         $scope.sortBy = 'time';
+
+        $scope.filterMatch = function (liga) {
+            if ($scope.filters.indexOf(liga) != -1)
+                $scope.filters.splice($scope.filters.indexOf(liga), 1);
+            else
+                $scope.filters.push(liga);
+        };
     });
