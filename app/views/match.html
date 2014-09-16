@@ -4,9 +4,15 @@
     </div>
     <div class="col-md-6">
         <h4><a href="" ng-click="teamInfo(match.homeTeam)">{{match.homeTeam}}</a></h4>
+        <div class="col-xs-4">
+            <img class="img-responsive" ng-if="match.homeTeam === 'CF Elche'" ng-src="http://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Elche_CF_logo.svg/833px-Elche_CF_logo.svg.png"/>
+        </div>
     </div>
     <div class="col-md-6">
         <h4 class="text-right"><a href="" ng-click="teamInfo(match.awayTeam)">{{match.awayTeam}}</a></h4>
+        <div class="col-xs-4 pull-right">
+            <img class="pull-right img-responsive" ng-if="match.awayTeam === 'SD Eibar'" ng-src="http://upload.wikimedia.org/wikipedia/en/thumb/7/75/SD_Eibar_logo.svg/187px-SD_Eibar_logo.svg.png"/>
+        </div>    
     </div>
 </div>
 
@@ -15,4 +21,4 @@
     <div class="col-md-3 "><a href="#">outlook<i class="glyphicon glyphicon-calendar"></i></a></div>
     <div class="col-md-3 "><a href="#">google<i class="glyphicon glyphicon-calendar"></i></a></div>
     <div class="col-md-3 "><a href="#">email<i class="glyphicon glyphicon-calendar"></i></a></div>
-</div>
+</div

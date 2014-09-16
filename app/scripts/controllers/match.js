@@ -8,7 +8,7 @@
  * Controller of the fotbollskalendernWebApp
  */
 angular.module('fotbollskalendernWebApp')
-  .controller('MatchCtrl', function ($scope, matchService, $location) {
+  .controller('MatchCtrl', function ($scope, matchService, $location, $http) {
       $scope.id = $location.search().matchId;
       $scope.match = {};
 
@@ -19,4 +19,5 @@ angular.module('fotbollskalendernWebApp')
       $scope.teamInfo = function (team) {
           $location.path('team').search('teamName', team);
       };
+
   });
