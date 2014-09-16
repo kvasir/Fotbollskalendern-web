@@ -3,10 +3,11 @@
         <label class="btn btn-default active searchButton" ng-click="filterMatch(league.name)" ng-repeat="league in leagues" btn-checkbox> {{ league.name }}</label>
     </div>
 </div>
-<div ng-class="{'jumbotron':$first}" class="row" ng-repeat="day in allDays" ng-if="day.games">
+<div ng-class="{'jumbotron':$first}" class="row" ng-repeat="day in allDays" ng-if="$first || day.games">
     <div class="col-xs-12">
         <h1 ng-if="allDays[0] !== day">{{ day.date | date:'EEEE' }}</h1>
         <h1 ng-if="allDays[0] === day">Idag</h1>
+        <p ng-if="!day.games[0].game"> Inga matcher idag</p>
         <table class="table table-hover">
             <thead ng-if="allDays[0] !== day">
                 <tr class="text-center">
