@@ -163,7 +163,6 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     wiredep: {
       options: {
-        cwd: '<%= yeoman.app %>'
       },
       app: {
         src: ['<%= yeoman.app %>/index.html'],
@@ -312,7 +311,8 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'fonts/*',
+						'mock_data/*'
           ]
         }, {
           expand: true,
@@ -348,6 +348,13 @@ module.exports = function (grunt) {
         'svgmin'
       ]
     },
+
+		'gh-pages': {
+			options: {
+				base: 'dist'
+			},
+			src: ['**']
+		},
 
     // Test settings
     karma: {
@@ -402,6 +409,11 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin'
+  ]);
+
+  grunt.registerTask('publish', [
+    'build',
+		'gh-pages'
   ]);
 
   grunt.registerTask('default', [
