@@ -11,7 +11,8 @@
 angular
   .module('fotbollskalendernWebApp', [
     'ngRoute',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'LocalStorageModule'
   ])
 	.value()
   .config(function ($routeProvider, $locationProvider) {

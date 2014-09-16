@@ -9,7 +9,7 @@
  */
 
 angular.module('fotbollskalendernWebApp')
-    .controller('MainCtrl', function ($scope, $location, matchService, Leagues) {
+    .controller('MainCtrl', function ($scope, $location, matchService, Leagues, localStorageService) {
         var gamesFromDay = function (date) {
             matchService.getGamesByDate(date).then(function (result) {
                 $scope.allDays.push({
@@ -19,12 +19,27 @@ angular.module('fotbollskalendernWebApp')
             });
         };
 
-        $scope.leagues = Leagues;
+        $scope.clearLocalStorage = function () {
+            localStorageService.clearAll();
+            console.log("Scope: " + $scope.filters);
+            console.log("Local: " + localStorageService.get('savedFilters'))
+        };
 
         $scope.filters = [];
-        Leagues.forEach(function (league) {
-            $scope.filters.push(league.name);
-        });
+        $scope.leagues = Leagues;
+
+        if (localStorageService.get('savedFilter')) {
+            console.log("hittade local storage");
+            $scope.filters = localStorageService.get('savedFilter');
+        }
+        else {
+            console.log("hittade ingen local storage");
+            Leagues.forEach(function (league) {
+                $scope.filters.push(league.name);
+            });
+            localStorageService.set('savedFilter', $scope.filters);
+        }
+
 
         $scope.allLeagues = Leagues;
         $scope.allDays = [];
@@ -52,5 +67,7 @@ angular.module('fotbollskalendernWebApp')
                 $scope.filters.splice($scope.filters.indexOf(liga), 1);
             else
                 $scope.filters.push(liga);
+            console.log("skriver över local storage med " + $scope.filters);
+            localStorageService.set('savedFilter', $scope.filters);
         };
     });
