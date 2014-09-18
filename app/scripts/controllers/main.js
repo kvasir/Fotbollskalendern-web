@@ -40,12 +40,15 @@ angular.module('fotbollskalendernWebApp')
             localStorageService.set('savedFilter', $scope.filters);
         }
 
-
         $scope.allLeagues = Leagues;
         $scope.allDays = [];
 
         var days = 7;
         var today = new Date();
+        $scope.gameIsPassed = (today.getHours() + 2);
+        $scope.now = today.getHours();
+        console.log("NOW: " + $scope.now);
+        console.log("PASSED: " + $scope.gameIsPassed);
         var options = {
             year: 'numeric',
             month: '2-digit',

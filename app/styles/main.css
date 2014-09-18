@@ -2,6 +2,16 @@
     cursor: pointer;
 }
 
+
+.gameIsLive{
+    color:  green;
+}
+
+.gameHasEnded{
+    color: black;
+    text-decoration: line-through;
+}
+
 .jumbotron > div >h1{
     margin-bottom: 30px;    
 }

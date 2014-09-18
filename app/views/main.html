@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="hoverPointer" ng-click="matchInfo(game.game)" ng-repeat="game in day.games | filterArray:filters| orderBy:'game.date':false">
+                <tr class="hoverPointer" ng-class="{'gameIsLive': ((game.game.date | date:'HH') <= now && (game.game.date | date:'HH') < gameIsPassed), 'gameHasEnded': (gameIsPassed - 4 >= (game.game.date | date:'HH'))}" ng-click="matchInfo(game.game)" ng-repeat="game in day.games | filterArray:filters| orderBy:'game.date':false">
                     <td ng-if="includeDate">{{game.game.date | date:'dd/MM yyyy' }} </td>
                     <td>{{game.game.date | date:'HH:mm'}}</td>
                     <td>{{game.game.homeTeam}}</td> 
