@@ -1,13 +1,13 @@
 angular.module('fotbollskalendernWebApp')
     .factory('teamService', function ($http, $q) {
-        var all = $q.all([
-            $http.get("mock_data/premierleague.json"),
-            $http.get("mock_data/bundesliga.json"),
-            $http.get("mock_data/holland.json"),
-            $http.get("mock_data/laliga.json"),
-            $http.get("mock_data/seriea.json"),
-            $http.get("mock_data/ligue1.json")
-        ]);
+				var apiKey = '2ecca4360cd746d5a4808ba2b8e1fa96';
+				var requests = [];
+				Leagues.forEach(function (league) {
+						requests.push($http.get(league.url, {
+							headers: { 'X-Auth-Token': apiKey },
+						}));
+				});
+				var all = $q.all(requests);
         return {
             getGamesFromTeam: function (teamName) {
                 var games = [];
@@ -16,7 +16,7 @@ angular.module('fotbollskalendernWebApp')
                     results.forEach(function (result) {
                         var allGames = result.data;
                         allGames.forEach(function(game){
-                          if (game.homeTeam === teamName || game.awayTeam === teamName) games.push(game);
+                          if (game.homeTeamName === teamName || game.awayTeamName === teamName) games.push(game);
                         })
                      });
                     gameResult.resolve(games);
