@@ -1,8 +1,12 @@
 
 angular.module('fotbollskalendernWebApp').factory('matchService', function ($http, $q, Leagues) {
+
+		var apiKey = '2ecca4360cd746d5a4808ba2b8e1fa96';
     var requests = [];
     Leagues.forEach(function (league) {
-        requests.push($http.get(league.url));
+        requests.push($http.get(league.url, {
+					headers: { 'X-Auth-Token': apiKey },
+				}));
     });
     var all = $q.all(requests);
 
@@ -12,7 +16,7 @@ angular.module('fotbollskalendernWebApp').factory('matchService', function ($htt
             var gameResult = $q.defer();
             all.then(function (results) {
                 results.forEach(function (result, index) {
-                    var allGames = result.data;
+                    var allGames = result.data.fixtures;
                     var iterator = index;
                     allGames.forEach(function (game) {
                         if (game.date.indexOf(date) === 0)

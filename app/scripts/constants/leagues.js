@@ -1,26 +1,22 @@
 angular.module('fotbollskalendernWebApp').constant('Leagues', [
         {
             name: 'Premier league',
-            url: 'mock_data/premierleague.json'
+            url: 'http://api.football-data.org/v1/soccerseasons/398/fixtures'
         },
         {
             name: 'La liga',
-            url: 'mock_data/laliga.json'
+            url: 'http://api.football-data.org/v1/soccerseasons/399/fixtures'
         },
         {
             name: 'Bundesliga',
-            url: 'mock_data/bundesliga.json'
+            url: 'http://api.football-data.org/v1/soccerseasons/394/fixtures'
         },
         {
             name: 'Serie A',
-            url: 'mock_data/seriea.json'
+            url: 'http://api.football-data.org/v1/soccerseasons/401/fixtures'
         },
         {
             name: 'Franskaligan',
-            url: 'mock_data/ligue1.json'
-        },
-        {
-            name: 'Hollänskaligan',
-            url: 'mock_data/holland.json'
-        },
+            url: 'http://api.football-data.org/v1/soccerseasons/396/fixtures'
+        }
     ]);
