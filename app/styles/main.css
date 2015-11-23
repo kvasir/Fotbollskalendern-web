@@ -2,7 +2,6 @@
     cursor: pointer;
 }
 
-
 .gameIsLive{
     color:  green;
 }
@@ -13,7 +12,7 @@
 }
 
 .jumbotron > div >h1{
-    margin-bottom: 30px;    
+    margin-bottom: 30px;
 }
 
 .searchButton{

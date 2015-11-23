@@ -24,7 +24,7 @@ angular.module('fotbollskalendernWebApp')
         Leagues.forEach(function (league) {
             $scope.filters.push(league.name);
         });
-        
+
         $scope.allDays = [];
         var days = 30;
         var today = new Date();
@@ -38,7 +38,6 @@ angular.module('fotbollskalendernWebApp')
             today.setDate(today.getDate() + 1);
         };
         $scope.matchInfo = function (game) {
-            console.log(game.id);
             $location.path('match').search('matchId', game.id);
         };
         $scope.sortBy = 'time';

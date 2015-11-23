@@ -6,8 +6,6 @@ angular.module('fotbollskalendernWebApp')
             $scope.games = data;
         });
         $scope.matchInfo = function (game) {
-            console.log(game.id);
             $location.path('match').search('matchId', game.id);
         };
     });
-
