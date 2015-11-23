@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('fotbollskalendernWebApp')
     .controller('TeamCtrl', function ($scope, $location, teamService) {
         $scope.team = $location.search().teamName;

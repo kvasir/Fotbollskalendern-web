@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('fotbollskalendernWebApp')
     .directive('gamesList', function () {
         return {

@@ -36,16 +36,19 @@ angular.module('fotbollskalendernWebApp')
         for (var i = 0; i < days; i++) {
             gamesFromDay(today.toLocaleDateString('sv-SE', options));
             today.setDate(today.getDate() + 1);
-        };
+        }
         $scope.matchInfo = function (game) {
             $location.path('match').search('matchId', game.id);
         };
         $scope.sortBy = 'time';
 
         $scope.filterMatch = function (liga) {
-            if ($scope.filters.indexOf(liga) != -1)
+            if ($scope.filters.indexOf(liga) !== -1){
                 $scope.filters.splice($scope.filters.indexOf(liga), 1);
-            else
+            }
+            else {
                 $scope.filters.push(liga);
+            }
+
         };
     });

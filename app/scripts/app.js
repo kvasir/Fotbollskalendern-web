@@ -15,7 +15,7 @@ angular
     'LocalStorageModule'
   ])
 	.value()
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider) {
       $routeProvider
       .when('/', {
           templateUrl: 'views/main.html',
@@ -41,28 +41,28 @@ angular
   .filter('futureDates', function () {
       return function (orders) {
 
-          var filtered_list = [];
+          var filteredList = [];
           var today = new Date().getTime();
           for (var i = 0; i < orders.length; i++) {
 
               var date = new Date(orders[i].date).getTime();
 
               if (today < date) {
-                  filtered_list.push(orders[i]);
+                  filteredList.push(orders[i]);
               }
           }
-          return filtered_list;
-      }
+          return filteredList;
+      };
   })
   .filter('filterArray', function () {
       return function (matches, filters) {
 
-          var filtered_list = [];
+          var filteredList = [];
           for (var i = 0; i < matches.length; i++) {
-              if (filters.indexOf(matches[i].league) != -1) {
-                  filtered_list.push(matches[i]);
+              if (filters.indexOf(matches[i].league) !== -1) {
+                  filteredList.push(matches[i]);
               }
           }
-          return filtered_list;
-      }
+          return filteredList;
+      };
   });

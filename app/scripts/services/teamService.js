@@ -1,5 +1,7 @@
+'use strict';
+
 angular.module('fotbollskalendernWebApp')
-    .factory('teamService', function ($http, $q) {
+    .factory('teamService', function ($http, $q, Leagues) {
 				var apiKey = '2ecca4360cd746d5a4808ba2b8e1fa96';
 				var requests = [];
 				Leagues.forEach(function (league) {
@@ -16,13 +18,15 @@ angular.module('fotbollskalendernWebApp')
                     results.forEach(function (result) {
                         var allGames = result.data;
                         allGames.forEach(function(game){
-                          if (game.homeTeamName === teamName || game.awayTeamName === teamName) games.push(game);
-                        })
+                          if (game.homeTeamName === teamName || game.awayTeamName === teamName) {
+                              games.push(game);
+                          }
+                      });
                      });
                     gameResult.resolve(games);
                 });
 
                 return gameResult.promise;
             }
-        }
+        };
     });

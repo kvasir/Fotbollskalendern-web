@@ -1,3 +1,4 @@
+'use strict';
 
 angular.module('fotbollskalendernWebApp').factory('matchService', function ($http, $q, Leagues) {
 
@@ -19,11 +20,12 @@ angular.module('fotbollskalendernWebApp').factory('matchService', function ($htt
                     var allGames = result.data.fixtures;
                     var iterator = index;
                     allGames.forEach(function (game) {
-                        if (game.date.indexOf(date) === 0)
-                            games.push({
-                                game: game,
-                                league: Leagues[iterator].name
-                            });
+                        if (game.date.indexOf(date) === 0) {
+							games.push({
+								game: game,
+								league: Leagues[iterator].name
+							});
+						}
                     });
                 });
                 gameResult.resolve(games);
@@ -38,8 +40,9 @@ angular.module('fotbollskalendernWebApp').factory('matchService', function ($htt
                 results.forEach(function (result) {
                     var allGames = result.data;
                     allGames.forEach(function (game) {
-                        if (game.id === id)
-                            target = game;
+                        if (game.id === id) {
+							target = game;
+						}
                     });
                 });
                 gameResult.resolve(target);
@@ -47,5 +50,5 @@ angular.module('fotbollskalendernWebApp').factory('matchService', function ($htt
 
             return gameResult.promise;
         }
-    }
+    };
 });
