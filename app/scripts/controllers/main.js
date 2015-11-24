@@ -55,7 +55,7 @@ angular.module('fotbollskalendernWebApp')
         }
 
         $scope.matchInfo = function (game) {
-            $location.path('match').search('matchId', game.id);
+            $location.path('match').search({'homeTeamName': game.homeTeamName, 'awayTeamName': game.awayTeamName, 'date': game.date});
         };
 
         $scope.filterMatch = function (liga) {
