@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fotbollskalendernWebApp').factory('matchService', function ($http, $q, Leagues) {
+angular.module('fotbollskalendernWebApp').factory('MatchService', function ($http, $q, Leagues) {
 
 		var apiKey = '2ecca4360cd746d5a4808ba2b8e1fa96';
     var requests = [];

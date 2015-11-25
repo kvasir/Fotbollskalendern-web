@@ -9,7 +9,7 @@
  */
 
 angular.module('fotbollskalendernWebApp')
-    .controller('MainCtrl', function ($scope, $location, matchService, Leagues, localStorageService) {
+    .controller('MainCtrl', function ($scope, $location, MatchService, Leagues, localStorageService) {
         var gamesFromDay = function (date) {
             matchService.getGamesByDate(date).then(function (result) {
                 $scope.allDays.push({
