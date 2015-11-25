@@ -11,7 +11,7 @@
 angular.module('fotbollskalendernWebApp')
     .controller('MainCtrl', function ($scope, $location, MatchService, Leagues, localStorageService) {
         var gamesFromDay = function (date) {
-            matchService.getGamesByDate(date).then(function (result) {
+            MatchService.getGamesByDate(date).then(function (result) {
                 $scope.allDays.push({
                     date: date,
                     games: result
@@ -55,7 +55,7 @@ angular.module('fotbollskalendernWebApp')
         }
 
         $scope.matchInfo = function (game) {
-            $location.path('match').search({'homeTeamName': game.homeTeamName, 'awayTeamName': game.awayTeamName, 'date': game.date});
+            $location.path('match').search('url', game._links.self.href);
         };
 
         $scope.filterMatch = function (liga) {

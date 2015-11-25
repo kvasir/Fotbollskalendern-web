@@ -10,9 +10,11 @@
 angular.module('fotbollskalendernWebApp')
   .controller('MatchCtrl', function ($scope, $location, MatchService) {
       $scope.match = {};
-      $scope.match.homeTeamName = $location.search().homeTeamName;
-      $scope.match.awayTeamName = $location.search().awayTeamName;
-      $scope.match.date = $location.search().date;
+      var url = $location.search().url;
+      MatchService.getGameByUrl(url).then(function(data){
+          console.log(data);
+         $scope.match = data.fixture;
+      });
 
       $scope.teamInfo = function (team) {
           $location.path('team').search('teamName', team);
