@@ -4,9 +4,16 @@ angular.module('fotbollskalendernWebApp')
     .controller('TeamCtrl', function ($scope, $location, TeamService) {
         var url = $location.search().url;
         $scope.games = {};
-        teamService.getGamesFromTeam($scope.team).then(function (data) {
-            $scope.games = data;
+        var teamInformation = {};
+
+        TeamService.getTeamInformation(url).then(function(data){
+            teamInformation = data;
+            TeamService.getGamesFromUrl(teamInformation._links.fixtures.href).then(function(games){
+                $scope.games = games.fixtures;
+                $scope.teamInformation = teamInformation;
+            });
         });
+
         $scope.matchInfo = function (game) {
             $location.path('match').search('matchId', game.id);
         };

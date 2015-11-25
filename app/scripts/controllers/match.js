@@ -12,12 +12,16 @@ angular.module('fotbollskalendernWebApp')
       $scope.match = {};
       var url = $location.search().url;
       MatchService.getGameByUrl(url).then(function(data){
-          console.log(data);
          $scope.match = data.fixture;
       });
 
-      $scope.teamInfo = function (team) {
-          $location.path('team').search('teamName', team);
+      $scope.teamInfo = function (game, isHomeTeam) {
+          if(isHomeTeam){
+              $location.path('team').search('url', game._links.homeTeam.href);
+          }
+          else{
+              $location.path('team').search('url', game._links.awayTeam.href);
+          }
       };
 
   });
