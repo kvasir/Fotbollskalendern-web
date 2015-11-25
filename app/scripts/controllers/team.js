@@ -15,6 +15,6 @@ angular.module('fotbollskalendernWebApp')
         });
 
         $scope.matchInfo = function (game) {
-            $location.path('match').search('matchId', game.id);
+            $location.path('match').search('url', game._links.self.href);
         };
     });
