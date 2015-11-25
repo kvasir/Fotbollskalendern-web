@@ -1,15 +1,8 @@
 'use strict';
 
 angular.module('fotbollskalendernWebApp')
-    .factory('teamService', function ($http, $q, Leagues) {
-				var apiKey = '2ecca4360cd746d5a4808ba2b8e1fa96';
-				var requests = [];
-				Leagues.forEach(function (league) {
-						requests.push($http.get(league.url, {
-							headers: { 'X-Auth-Token': apiKey },
-						}));
-				});
-				var all = $q.all(requests);
+    .factory('TeamService', function ($http, $q) {
+		var apiKey = '2ecca4360cd746d5a4808ba2b8e1fa96';
         return {
             getGamesFromTeam: function (teamName) {
                 var games = [];
