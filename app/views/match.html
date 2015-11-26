@@ -3,25 +3,32 @@
         <h1> {{match.fixture.date | date:'HH:mm'}} {{match.fixture.homeTeamName}} vs {{match.fixture.awayTeamName}}</h1>
     </div>
     <div class="col-md-6">
-        <h4><a href="" ng-click="teamInfo(match, true)">{{match.fixture.homeTeamName}}</a></h4>
+        <h4><a href="" ng-click="teamInfo(match.fixture, true)">{{match.fixture.homeTeamName}}</a></h4>
     </div>
     <div class="col-md-6">
         <h4 class="text-right"><a href="" ng-click="teamInfo(match.fixture)">{{match.fixture.awayTeamName}}</a></h4>
     </div>
 </div>
 <div class="row">
+    <h4>Tidigare matcher</h4>
     <div class="col-xs-12">
-        <blockquote>
-            <h4>Statistik</h4>
-            <p>
-                Antal vinster hemmalag: <strong>{{match.head2head.awayTeamWins}}</strong>
-            </p>
-            <p>
-                Antal vinster bortalag: <strong>{{match.head2head.homeTeamWins}}</strong>
-            </p>
-            <p>
-                Antal oavgjorda matcher: <strong>{{match.head2head.draws}}</strong>
-            </p>
-        </blockquote>
+        <table class="table table-hover">
+            <thead>
+                <tr class="text-center">
+                    <th class="col-xs-2">Datum</th>
+                    <th class="col-xs-3">Hemmalag</th>
+                    <th class="col-xs-3">Bortalag</th>
+                    <th class="col-xs-3">Resultat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="game in match.head2head.fixtures | orderBy:'game.date':false">
+                    <td>{{game.date | date:'dd/MM yyyy' }} </td>
+                    <td>{{game.homeTeamName}}</td>
+                    <td>{{game.awayTeamName}}</td>
+                    <td>{{game.result.goalsHomeTeam}} - {{ game.result.goalsAwayTeam }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
