@@ -11,6 +11,11 @@
     text-decoration: line-through;
 }
 
+.team-image{
+    width: 400px;
+    height: 200px;
+}
+
 .jumbotron > div >h1{
     margin-bottom: 30px;
 }
