@@ -12,7 +12,8 @@ angular.module('fotbollskalendernWebApp')
       $scope.match = {};
       var url = $location.search().url;
       MatchService.getGameByUrl(url).then(function(data){
-         $scope.match = data.fixture;
+          console.log(data);
+         $scope.match = data;
       });
 
       $scope.teamInfo = function (game, isHomeTeam) {
