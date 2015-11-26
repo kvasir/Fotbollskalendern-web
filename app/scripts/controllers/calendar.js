@@ -8,9 +8,9 @@
  * Controller of the fotbollskalendernWebApp
  */
 angular.module('fotbollskalendernWebApp')
-    .controller('AboutCtrl', function ($scope, matchService, $location, Leagues) {
+    .controller('CalendarCtrl', function ($scope, MatchService, $location, Leagues) {
         var gamesFromDay = function (date) {
-            matchService.getGamesByDate(date).then(function (result) {
+            MatchService.getGamesByDate(date).then(function (result) {
                 $scope.allDays.push({
                     date: date,
                     games: result

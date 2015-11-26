@@ -21,9 +21,9 @@ angular
           templateUrl: 'views/main.html',
           controller: 'MainCtrl'
       })
-      .when('/about', {
-          templateUrl: 'views/about.html',
-          controller: 'AboutCtrl'
+      .when('/calendar', {
+          templateUrl: 'views/calendar.html',
+          controller: 'CalendarCtrl'
       })
 	  .when('/match', {
 	      templateUrl: 'views/match.html',
