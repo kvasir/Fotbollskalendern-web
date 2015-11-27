@@ -8,11 +8,10 @@
  * Controller of the fotbollskalendernWebApp
  */
 angular.module('fotbollskalendernWebApp')
-  .controller('MatchCtrl', function ($scope, $location, MatchService) {
+  .controller('MatchCtrl', function ($scope, $location, DataService) {
       $scope.match = {};
       var url = $location.search().url;
-      MatchService.getGameByUrl(url).then(function(data){
-          console.log(data);
+      DataService.getDataFromUrl(url).then(function(data){
          $scope.match = data;
       });
 
