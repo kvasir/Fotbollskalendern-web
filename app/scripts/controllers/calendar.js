@@ -38,7 +38,7 @@ angular.module('fotbollskalendernWebApp')
             today.setDate(today.getDate() + 1);
         }
         $scope.matchInfo = function (game) {
-            $location.path('match').search('matchId', game.id);
+            $location.path('match').search('url', game._links.self.href);
         };
         $scope.sortBy = 'time';
 
