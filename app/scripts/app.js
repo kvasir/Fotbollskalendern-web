@@ -68,4 +68,25 @@ angular
           }
           return filteredList;
       };
+  })
+  .filter('toSwedishWeekday', function () {
+      return function (weekday) {
+
+          switch (weekday) {
+              case 'Monday':
+                  return 'Måndag';
+              case 'Thuesday':
+                  return 'Tisdag';
+              case 'Wednesday':
+                  return 'Onsdag';
+              case 'Thursday':
+                  return 'Torsdag';
+              case 'Friday':
+                  return 'Fredag';
+              case 'Saturday':
+                  return 'Lördag';
+              case 'Sunday':
+                  return 'Söndag';
+          }
+      };
   });
