@@ -12,16 +12,8 @@
 <div class="row past-games">
     <div class="col-xs-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Tidigare möten</div>
+            <div class="panel-heading"><strong>Tidigare möten</strong></div>
             <table class="table table-hover">
-                <thead>
-                    <tr class="text-center">
-                        <th class="col-xs-2">Datum</th>
-                        <th class="col-xs-3">Hemmalag</th>
-                        <th class="col-xs-3">Bortalag</th>
-                        <th class="col-xs-3">Resultat</th>
-                    </tr>
-                </thead>
                 <tbody>
                     <tr ng-repeat="game in match.head2head.fixtures | orderBy:'game.date':false">
                         <td>{{game.date | date:'dd/MM yyyy' }} </td>
