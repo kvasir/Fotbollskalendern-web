@@ -72,7 +72,6 @@ angular.module('fotbollskalendernWebApp')
             else{
                 $scope.filters.push(liga);
             }
-
             localStorageService.set('savedFilter', $scope.filters);
         };
     });

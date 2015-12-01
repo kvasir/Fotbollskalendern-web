@@ -12,5 +12,4 @@ angular.module('fotbollskalendernWebApp')
       $scope.viewTeam = function(team){
           $location.path('team').search('url', team._links.team.href);
       };
-
   });
