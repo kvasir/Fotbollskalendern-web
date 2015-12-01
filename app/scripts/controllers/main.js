@@ -62,7 +62,7 @@ angular.module('fotbollskalendernWebApp')
             var obj = Leagues.filter(function ( obj ) {
                 return obj.name === league;
             })[0];
-            $location.path('league').search('url', obj.table);
+            $location.path('league').search('url', obj.url);
         };
 
         $scope.filterMatch = function (liga) {
