@@ -3,14 +3,19 @@
     <div class="col-xs-12">
         <div class="panel panel-default">
             <div class="panel-heading"><strong>{{table.leagueCaption}}</strong></div>
-            <table class="table table-hover">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <td>#</td>
-                        <td></td>
-                        <td>Antal matcher</td>
-                        <td>Målskillnad</td>
-                        <td>Poäng</td>
+                        <td>Lag</td>
+                        <td>S</td>
+                        <td>W</td>
+                        <td>O</td>
+                        <td>F</td>
+                        <td>GM</td>
+                        <td>IM</td>
+                        <td>MS</td>
+                        <td>P</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,6 +23,11 @@
                         <td>{{ team.position }} </td>
                         <td>{{ team.teamName }}</td>
                         <td>{{ team.playedGames }}</td>
+                        <td>{{ team.wins }}</td>
+                        <td>{{ team.draws }}</td>
+                        <td>{{ team.losses }}</td>
+                        <td>{{ team.goals }}</td>
+                        <td>{{ team.goalsAgainst }}</td>
                         <td>{{ team.goalDifference }}</td>
                         <td>{{ team.points }}</td>
                     </tr>
