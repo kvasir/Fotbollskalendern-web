@@ -1,0 +1,17 @@
+
+<div class="row past-games">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>{{table.leagueCaption}}</strong></div>
+            <table class="table table-hover">
+                <tbody>
+                    <tr ng-repeat="team in table.standing | orderBy:'team.points'">
+                        <td>{{ team.position }} </td>
+                        <td>{{ team.teamName }}</td>
+                        <td>{{ team.points }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
