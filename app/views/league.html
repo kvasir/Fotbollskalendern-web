@@ -4,10 +4,21 @@
         <div class="panel panel-default">
             <div class="panel-heading"><strong>{{table.leagueCaption}}</strong></div>
             <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td></td>
+                        <td>Antal matcher</td>
+                        <td>Målskillnad</td>
+                        <td>Poäng</td>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr class="hoverPointer" ng-click="viewTeam(team)" ng-repeat="team in table.standing | orderObjectBy:'position'">
                         <td>{{ team.position }} </td>
                         <td>{{ team.teamName }}</td>
+                        <td>{{ team.playedGames }}</td>
+                        <td>{{ team.goalDifference }}</td>
                         <td>{{ team.points }}</td>
                     </tr>
                 </tbody>
