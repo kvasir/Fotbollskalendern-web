@@ -36,6 +36,10 @@ angular
       .when('/about', {
           templateUrl: 'views/about.html'
       })
+      .when('/league', {
+          templateUrl: 'views/league.html',
+          controller: 'LeagueCtrl'
+      })
       .otherwise({
           redirectTo: '/'
       });
