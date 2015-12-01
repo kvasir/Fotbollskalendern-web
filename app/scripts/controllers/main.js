@@ -58,6 +58,13 @@ angular.module('fotbollskalendernWebApp')
             $location.path('match').search('url', game._links.self.href);
         };
 
+        $scope.viewLeague = function(league) {
+            var obj = Leagues.filter(function ( obj ) {
+                return obj.name === league;
+            })[0];
+            $location.path('league').search('url', obj.table);
+        };
+
         $scope.filterMatch = function (liga) {
             if ($scope.filters.indexOf(liga) !== -1){
                 $scope.filters.splice($scope.filters.indexOf(liga), 1);
