@@ -5,7 +5,7 @@
             <div class="panel-heading"><strong>{{table.leagueCaption}}</strong></div>
             <table class="table table-hover">
                 <tbody>
-                    <tr ng-repeat="team in table.standing | orderBy:'team.points'">
+                    <tr ng-repeat="team in table.standing | orderObjectBy:'position'">
                         <td>{{ team.position }} </td>
                         <td>{{ team.teamName }}</td>
                         <td>{{ team.points }}</td>

@@ -6,7 +6,6 @@ angular.module('fotbollskalendernWebApp')
       $scope.table = {};
       var url = $location.search().url;
       DataService.getDataFromUrl(url).then(function(data){
-          console.log(data);
           $scope.table = data;
       });
 
