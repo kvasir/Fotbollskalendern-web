@@ -1,6 +1,6 @@
 <div class="row text-center hidden-xs">
     <div class="btn-group">
-        <label class="btn btn-default searchButton" ng-class="{'active': (filters.indexOf(league.name) != -1)}" ng-click="filterMatch(league.name)" ng-repeat="league in leagues" btn-checkbox> {{ league.name }}</label>
+        <label class="btn btn-default searchButton" ng-class="{'active': (filters.indexOf(league.name) != -1)}" ng-click="filterMatch(league.name)" ng-repeat="league in leagues"> {{ league.name }}</label>
     </div>
 </div>
 <div ng-class="{'jumbotron':$first}" class="row" ng-repeat="day in allDays" ng-if="$first || day.games">

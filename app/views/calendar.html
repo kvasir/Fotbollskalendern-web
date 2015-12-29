@@ -1,6 +1,6 @@
 <div class="row text-center">
     <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-default active searchButton" ng-click="filterMatch(league.name)" ng-repeat="league in leagues" btn-checkbox> {{ league.name }}</label>
+        <label class="btn btn-default active searchButton" ng-click="filterMatch(league.name)" ng-repeat="league in leagues"> {{ league.name }}</label>
     </div>
 </div>
 <div class="row" ng-repeat="day in allDays" ng-if="day.games[0]">
