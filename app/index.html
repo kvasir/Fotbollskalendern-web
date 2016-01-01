@@ -22,6 +22,7 @@
 	<![endif]-->
 
 	<!-- Add your site or application content here -->
+
 	<div class="container">
 
 		<nav class="navbar navbar-default	navbar-fixed-top">
@@ -44,9 +45,16 @@
 				</div>
 			</div>
 		</nav>
+		<div class="row">
 
-		<div ng-view=""></div>
+		<div class="col-md-3 hidden-xs">
+			<league-filter></league-filter>
+		</div>
+		<div class="col-md-9">
+			<div ng-view=""></div>
+		</div>
 
+		</div>
 		<div class="footer">
 			<p><span class="glyphicon glyphicon-heart"></span> from <a href="https://github.com/kvasir">Kvasir</a></p>
 		</div>
@@ -94,6 +102,7 @@
 	<script src="scripts/controllers/team.js"></script>
 	<script src="scripts/controllers/league.js"></script>
 	<script src="scripts/directives/gamesList.js"></script>
+	<script src="scripts/directives/leagueFilter.js"></script>
 	<script src="scripts/services/matchService.js"></script>
 	<script src="scripts/services/dataService.js"></script>
 	<script src="scripts/services/teamService.js"></script>
