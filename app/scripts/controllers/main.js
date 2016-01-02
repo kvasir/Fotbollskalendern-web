@@ -9,7 +9,7 @@
 */
 
 angular.module('fotbollskalendernWebApp')
-.controller('MainCtrl', function ($scope, $location, MatchService, Leagues, localStorageService) {
+.controller('MainCtrl', function ($scope, $location, MatchService, Leagues, FilterService) {
 	var gamesFromDay = function (date) {
 		MatchService.getGamesByDate(date).then(function (result) {
 			$scope.allDays.push({
@@ -19,21 +19,9 @@ angular.module('fotbollskalendernWebApp')
 		});
 	};
 
-	$scope.clearLocalStorage = function () {
-		localStorageService.clearAll();
-	};
-
-	$scope.filters = [];
+	$scope.filters = FilterService.getLeagueFilters() || [];
 	$scope.leagues = Leagues;
 
-	if (localStorageService.get('savedFilter')) {
-		$scope.filters = localStorageService.get('savedFilter');
-	} else {
-		Leagues.forEach(function (league) {
-			$scope.filters.push(league.name);
-		});
-		localStorageService.set('savedFilter', $scope.filters);
-	}
 	$scope.allLeagues = Leagues;
 	$scope.allDays = [];
 	var days = 7;
@@ -62,12 +50,13 @@ angular.module('fotbollskalendernWebApp')
 		$location.path('league').search('url', obj.url);
 	};
 
-	$scope.filterMatch = function (liga) {
-		if ($scope.filters.indexOf(liga) === -1) {
-			$scope.filters.push(liga);
+	$scope.filterMatch = function (league) {
+		if (FilterService.getLeagueFilters().indexOf(league) === -1) {
+			FilterService.addLeague(league);
+			$scope.filters.push(league);
 		} else {
-			$scope.filters.splice($scope.filters.indexOf(liga), 1);
+			FilterService.removeLeague(league);
+			$scope.filters.splice($scope.filters.indexOf(league), 1);
 		}
-		localStorageService.set('savedFilter', $scope.filters);
 	};
 });

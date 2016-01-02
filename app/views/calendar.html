@@ -1,8 +1,4 @@
-<div class="row text-center">
-    <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-default active searchButton" ng-click="filterMatch(league.name)" ng-repeat="league in leagues"> {{ league.name }}</label>
-    </div>
-</div>
+<league-filter></league-filter>
 <div class="row" ng-repeat="day in allDays" ng-if="day.games[0]">
     <div class="col-xs-12">
         <h1>{{ day.date | date:'dd MMMM' }}</h1>
@@ -17,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="hoverPointer" ng-click="matchInfo(game.game)" ng-repeat="game in day.games | filterArray:filters| orderBy:'game.date':false">
+                <tr class="hoverPointer" ng-click="matchInfo(game.game)" ng-repeat="game in day.games | filterArray:filters | orderBy:'game.date':false">
                     <td ng-if="includeDate">{{game.game.date | date:'dd/MM yyyy' }} </td>
                     <td>{{game.game.date | date:'HH:mm'}}</td>
                     <td>{{game.game.homeTeamName}}</td>
