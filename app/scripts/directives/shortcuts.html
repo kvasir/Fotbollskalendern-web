@@ -1,17 +1,5 @@
 <div data-spy="affix" data-offset-top="60" data-offset-bottom="200" class="affix">
-	<div class="">
-		<a href="#">Premier League</a>
-	</div>
-	<div class="">
-		<a href="#">La liga</a>
-	</div>
-	<div class="">
-		<a href="#">Bundesliga</a>
-	</div>
-	<div class="">
-		<a href="#">Serie A</a>
-	</div>
-	<div class="">
-		<a href="#">Ligue 1</a>
+	<div class="hoverPointer" ng-repeat="league in leagues">
+		<p ng-click="viewLeague(league.name)">{{ league.name }}</p>
 	</div>
 </div>
