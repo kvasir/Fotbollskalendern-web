@@ -3,7 +3,7 @@
 angular.module('fotbollskalendernWebApp')
 .directive('shortcuts', function ($location, Leagues) {
 	return {
-		templateUrl: 'scripts/directives/shortcuts.html',
+		templateUrl: 'views/shortcuts.html',
 		restrict: 'E',
 		link: function ($scope) {
 			$scope.leagues = Leagues;
