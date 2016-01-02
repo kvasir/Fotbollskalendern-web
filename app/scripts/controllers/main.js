@@ -1,77 +1,73 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name fotbollskalendernWebApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the fotbollskalendernWebApp
- */
+* @ngdoc function
+* @name fotbollskalendernWebApp.controller:MainCtrl
+* @description
+* # MainCtrl
+* Controller of the fotbollskalendernWebApp
+*/
 
 angular.module('fotbollskalendernWebApp')
-    .controller('MainCtrl', function ($scope, $location, MatchService, Leagues, localStorageService) {
-        var gamesFromDay = function (date) {
-            MatchService.getGamesByDate(date).then(function (result) {
-                $scope.allDays.push({
-                    date: date,
-                    games: result
-                });
-            });
-        };
+.controller('MainCtrl', function ($scope, $location, MatchService, Leagues, localStorageService) {
+	var gamesFromDay = function (date) {
+		MatchService.getGamesByDate(date).then(function (result) {
+			$scope.allDays.push({
+				date: date,
+				games: result
+			});
+		});
+	};
 
-        $scope.clearLocalStorage = function () {
-            localStorageService.clearAll();
-        };
+	$scope.clearLocalStorage = function () {
+		localStorageService.clearAll();
+	};
 
-        $scope.filters = [];
-        $scope.leagues = Leagues;
+	$scope.filters = [];
+	$scope.leagues = Leagues;
 
-        if (localStorageService.get('savedFilter')) {
-            $scope.filters = localStorageService.get('savedFilter');
-        }
-        else {
-            Leagues.forEach(function (league) {
-                $scope.filters.push(league.name);
-            });
-            localStorageService.set('savedFilter', $scope.filters);
-        }
+	if (localStorageService.get('savedFilter')) {
+		$scope.filters = localStorageService.get('savedFilter');
+	} else {
+		Leagues.forEach(function (league) {
+			$scope.filters.push(league.name);
+		});
+		localStorageService.set('savedFilter', $scope.filters);
+	}
+	$scope.allLeagues = Leagues;
+	$scope.allDays = [];
+	var days = 7;
+	var today = new Date();
+	$scope.gameIsPassed = (today.getHours() + 2);
+	$scope.now = today.getHours();
+	var options = {
+		year: 'numeric',
+		month: '2-digit',
+		day: '2-digit'
+	};
 
-        $scope.allLeagues = Leagues;
-        $scope.allDays = [];
+	for (var i = 0; i < days; i++) {
+		gamesFromDay(today.toLocaleDateString('sv-SE', options));
+		today.setDate(today.getDate() + 1);
+	}
 
-        var days = 7;
-        var today = new Date();
-        $scope.gameIsPassed = (today.getHours() + 2);
-        $scope.now = today.getHours();
-        var options = {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit'
-        };
+	$scope.matchInfo = function (game) {
+		$location.path('match').search('url', game._links.self.href);
+	};
 
-        for (var i = 0; i < days; i++) {
-            gamesFromDay(today.toLocaleDateString('sv-SE', options));
-            today.setDate(today.getDate() + 1);
-        }
+	$scope.viewLeague = function (league) {
+		var obj = Leagues.filter(function (obj) {
+			return obj.name === league;
+		})[0];
+		$location.path('league').search('url', obj.url);
+	};
 
-        $scope.matchInfo = function (game) {
-            $location.path('match').search('url', game._links.self.href);
-        };
-
-        $scope.viewLeague = function(league) {
-            var obj = Leagues.filter(function ( obj ) {
-                return obj.name === league;
-            })[0];
-            $location.path('league').search('url', obj.url);
-        };
-
-        $scope.filterMatch = function (liga) {
-            if ($scope.filters.indexOf(liga) !== -1){
-                $scope.filters.splice($scope.filters.indexOf(liga), 1);
-            }
-            else{
-                $scope.filters.push(liga);
-            }
-            localStorageService.set('savedFilter', $scope.filters);
-        };
-    });
+	$scope.filterMatch = function (liga) {
+		if ($scope.filters.indexOf(liga) === -1) {
+			$scope.filters.push(liga);
+		} else {
+			$scope.filters.splice($scope.filters.indexOf(liga), 1);
+		}
+		localStorageService.set('savedFilter', $scope.filters);
+	};
+});
