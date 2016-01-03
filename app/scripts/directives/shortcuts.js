@@ -1,12 +1,18 @@
 'use strict';
 
 angular.module('fotbollskalendernWebApp')
-.directive('shortcuts', function ($location, Leagues) {
+.directive('shortcuts', function ($location, Leagues, localStorageService) {
 	return {
 		templateUrl: 'views/shortcuts.html',
 		restrict: 'E',
 		link: function ($scope) {
 			$scope.leagues = Leagues;
+			$scope.favourites = localStorageService.get('favourites');
+
+			$scope.viewMatch = function (url) {
+				$location.path('team').search('url', url);
+			};
+
 			$scope.viewLeague = function (league) {
 				var obj = Leagues.filter(function (obj) {
 					return obj.name === league;

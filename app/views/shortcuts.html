@@ -1,5 +1,13 @@
 <div data-spy="affix" data-offset-top="60" data-offset-bottom="200" class="affix">
 	<div class="hoverPointer" ng-repeat="league in leagues">
-		<p ng-click="viewLeague(league.name)">{{ league.name }}</p>
+		<strong ng-click="viewLeague(league.name)">{{ league.name }}</strong>
+	</div>
+	<br>
+	<br>
+	<p class="">
+		<strong><ins>Favoriter:</ins></strong>
+	</p>
+	<div class="hoverPointer" ng-repeat="favourite in favourites">
+		<span ng-click="viewMatch(favourite.url)">{{ favourite.name }}</span>
 	</div>
 </div>
