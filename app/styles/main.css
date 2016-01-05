@@ -6,6 +6,10 @@
     color:  green;
 }
 
+.color-red{
+	color: red;
+}
+
 .gameHasEnded{
     color: black;
     text-decoration: line-through;

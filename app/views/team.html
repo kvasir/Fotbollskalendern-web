@@ -1,6 +1,10 @@
 <div class="row">
 	<div class="col-xs-6">
-		<h1>{{teamInformation.name}} <i class="glyphicon glyphicon-heart hoverPointer" ng-click="addToFavourites(teamInformation.name, url)" aria-hidden="true"></i></h1>
+		<h1>
+			{{teamInformation.name}}
+			<i ng-if="isFavourite" class="glyphicon glyphicon-heart hoverPointer color-red" ng-click="addToFavourites(teamInformation.name, url)" aria-hidden="true"></i>
+			<i ng-if="!isFavourite" class="glyphicon glyphicon-heart hoverPointer" ng-click="addToFavourites(teamInformation.name, url)" aria-hidden="true"></i>
+		</h1>
 	</div>
 	<div class="col-xs-6">
 		<img class="team-image" src="{{teamInformation.crestUrl}}" alt="" />

@@ -5,6 +5,7 @@ angular.module('fotbollskalendernWebApp')
 	var url = $location.search().url;
 	$scope.url = url;
 	$scope.games = {};
+	$scope.isFavourite = false;
 	var teamInformation = {};
 
 	DataService.getDataFromUrl(url).then(function (data) {
@@ -12,6 +13,7 @@ angular.module('fotbollskalendernWebApp')
 		DataService.getDataFromUrl(teamInformation._links.fixtures.href).then(function (games) {
 			$scope.games = games.fixtures;
 			$scope.teamInformation = teamInformation;
+			$scope.isFavourite = FavouritesService.isFavourite(teamInformation.name);
 		});
 	});
 
