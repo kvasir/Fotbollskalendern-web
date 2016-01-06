@@ -8,7 +8,7 @@
 * Controller of the fotbollskalendernWebApp
 */
 angular.module('fotbollskalendernWebApp')
-.controller('CalendarCtrl', function ($scope, MatchService, $location, Leagues, FilterService) {
+.controller('CalendarCtrl', function ($scope, MatchService, $location, Leagues) {
 	var gamesFromDay = function (date) {
 		MatchService.getGamesByDate(date).then(function (result) {
 			$scope.allDays.push({
@@ -19,7 +19,6 @@ angular.module('fotbollskalendernWebApp')
 	};
 	$scope.allLeagues = Leagues;
 	$scope.leagues = Leagues;
-	$scope.filters = FilterService.getLeagueFilters() || [];
 
 	$scope.allDays = [];
 	var days = 30;
@@ -37,14 +36,4 @@ angular.module('fotbollskalendernWebApp')
 		$location.path('match').search('url', game._links.self.href);
 	};
 	$scope.sortBy = 'time';
-
-	$scope.filterMatch = function (league) {
-		if (FilterService.getLeagueFilters().indexOf(league) === -1) {
-			FilterService.addLeague(league);
-			$scope.filters.push(league);
-		} else {
-			FilterService.removeLeague(league);
-			$scope.filters.splice($scope.filters.indexOf(league), 1);
-		}
-	};
 });
