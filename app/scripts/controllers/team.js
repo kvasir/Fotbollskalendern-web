@@ -18,6 +18,7 @@ angular.module('fotbollskalendernWebApp')
 	});
 
 	$scope.addToFavourites = function (teamName, url) {
+		$scope.isFavourite = !$scope.isFavourite;
 		FavouritesService.toggleFavourite(teamName, url);
 	};
 
