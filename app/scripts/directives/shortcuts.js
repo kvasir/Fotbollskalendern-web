@@ -6,6 +6,9 @@ angular.module('fotbollskalendernWebApp')
 		templateUrl: 'views/shortcuts.html',
 		restrict: 'E',
 		link: function ($scope) {
+			if (localStorageService.get('favourites') === null) {
+				localStorageService.set('favourites', []);
+			}
 			$scope.leagues = Leagues;
 			$scope.favourites = localStorageService.get('favourites');
 
