@@ -6,8 +6,11 @@ angular.module('fotbollskalendernWebApp')
 			templateUrl: 'views/league-filter.html',
 			restrict: 'E',
 			link: function ($scope) {
-				$scope.filters = FilterService.getLeagueFilters() || [];
-
+				if (FilterService.getLeagueFilters() === null) {
+					FilterService.setLeagueFilters([]);
+				}
+				console.log(FilterService.getLeagueFilters());
+				$scope.filters = FilterService.getLeagueFilters();
 				$scope.filterMatch = function (league) {
 					if (FilterService.getLeagueFilters().indexOf(league) === -1) {
 						FilterService.addLeague(league);
