@@ -9,7 +9,7 @@
 */
 
 angular.module('fotbollskalendernWebApp')
-.controller('MainCtrl', function ($scope, $location, MatchService, Leagues) {
+.controller('MainCtrl', function ($scope, $location, MatchService) {
 	var gamesFromDay = function (date) {
 		MatchService.getGamesByDate(date).then(function (result) {
 			$scope.allDays.push({
@@ -19,9 +19,6 @@ angular.module('fotbollskalendernWebApp')
 		});
 	};
 
-	$scope.leagues = Leagues;
-	// TODO why are there two of theese?
-	$scope.allLeagues = Leagues;
 	$scope.allDays = [];
 	var days = 7;
 	var today = new Date();
@@ -40,12 +37,5 @@ angular.module('fotbollskalendernWebApp')
 
 	$scope.matchInfo = function (game) {
 		$location.path('match').search('url', game._links.self.href);
-	};
-
-	$scope.viewLeague = function (league) {
-		var obj = Leagues.filter(function (obj) {
-			return obj.name === league;
-		})[0];
-		$location.path('league').search('url', obj.url);
 	};
 });
