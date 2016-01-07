@@ -21,6 +21,7 @@ angular.module('fotbollskalendernWebApp')
 				favourites.push({name: teamName, url: url});
 			}
 			localStorageService.set('favourites', favourites);
-		}
+		},
+		favourites: favourites
 	};
 });

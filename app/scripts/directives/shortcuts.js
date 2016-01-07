@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('fotbollskalendernWebApp')
-.directive('shortcuts', function ($location, Leagues, localStorageService) {
+.directive('shortcuts', function ($location, Leagues, localStorageService, FavouritesService) {
 	return {
 		templateUrl: 'views/shortcuts.html',
 		restrict: 'E',
@@ -10,7 +10,7 @@ angular.module('fotbollskalendernWebApp')
 				localStorageService.set('favourites', []);
 			}
 			$scope.leagues = Leagues;
-			$scope.favourites = localStorageService.get('favourites');
+			$scope.favourites = FavouritesService.favourites;
 
 			$scope.viewMatch = function (url) {
 				$location.path('team').search('url', url);
