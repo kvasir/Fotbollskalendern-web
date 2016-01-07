@@ -9,7 +9,6 @@ angular.module('fotbollskalendernWebApp')
 				if (FilterService.getLeagueFilters() === null) {
 					FilterService.setLeagueFilters([]);
 				}
-				console.log(FilterService.getLeagueFilters());
 				$scope.filters = FilterService.getLeagueFilters();
 				$scope.filterMatch = function (league) {
 					if (FilterService.getLeagueFilters().indexOf(league) === -1) {
