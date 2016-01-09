@@ -10,3 +10,9 @@ Preview: http://kvasir.github.io/Fotbollskalendern-web/
 ```
 $ npm install && bower install
 ```
+
+## Run
+
+```
+$ grunt serve
+```
