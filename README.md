@@ -14,5 +14,5 @@ $ npm install && bower install
 ## Run
 
 ```
-$ grunt serve
+$ npm start
 ```
