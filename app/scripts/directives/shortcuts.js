@@ -3,8 +3,7 @@
 angular.module('fotbollskalendernWebApp')
 .directive('shortcuts', function ($location, Leagues, localStorageService, FavouritesService) {
 	return {
-		templateUrl: 'views/shortcuts.html',
-		restrict: 'E',
+		restrict: 'A',
 		link: function ($scope) {
 			if (localStorageService.get('favourites') === null) {
 				localStorageService.set('favourites', []);
