@@ -5,7 +5,7 @@ angular.module('fotbollskalendernWebApp')
 	return {
 		restrict: 'A',
 		link: function ($scope) {
-			if (localStorageService.get('favourites') === null) {
+			if (FavouritesService.favourites === null) {
 				localStorageService.set('favourites', [{name: 'FC Barcelona', url: 'http://api.football-data.org/v1/teams/81'}]);
 			}
 			$scope.leagues = Leagues;
