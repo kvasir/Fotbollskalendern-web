@@ -6,10 +6,11 @@ angular.module('fotbollskalendernWebApp')
 		restrict: 'A',
 		link: function ($scope) {
 			if (localStorageService.get('favourites') === null) {
-				localStorageService.set('favourites', []);
+				localStorageService.set('favourites', [{name: 'FC Barcelona', url: 'http://api.football-data.org/v1/teams/81'}]);
 			}
 			$scope.leagues = Leagues;
 			$scope.favourites = FavouritesService.favourites;
+			console.log($scope.favourites);
 
 			$scope.viewMatch = function (url) {
 				$location.path('team').search('url', url);
