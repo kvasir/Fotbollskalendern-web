@@ -1,6 +1,11 @@
-var gulp = require('gulp'),
-    connect = require('gulp-connect');
+var gulp = require('gulp');
+var connect = require('gulp-connect');
+var ghPages = require('gulp-gh-pages');
 
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
 
 gulp.task('watch', function () {
   gulp.watch(['./app/**/*.html', './app/**/*.js', './app/**/*.css'], ['html']);
@@ -10,7 +15,6 @@ gulp.task('html', function () {
   gulp.src('./app/**/*.html','./app/**/*.js', './app/**/*.css')
     .pipe(connect.reload());
 });
-
 
 gulp.task('connectDev', function () {
   connect.server({
