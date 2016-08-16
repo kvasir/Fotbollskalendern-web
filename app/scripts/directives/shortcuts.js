@@ -10,7 +10,6 @@ angular.module('fotbollskalendernWebApp')
 			}
 			$scope.leagues = Leagues;
 			$scope.favourites = FavouritesService.favourites;
-			console.log($scope.favourites);
 
 			$scope.viewMatch = function (url) {
 				$location.path('team').search('url', url);
