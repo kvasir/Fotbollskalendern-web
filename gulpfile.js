@@ -3,7 +3,7 @@ var connect = require('gulp-connect');
 var ghPages = require('gulp-gh-pages');
 
 gulp.task('deploy', function() {
-  return gulp.src('./dist/**/*')
+  return gulp.src('./app/**/*')
     .pipe(ghPages());
 });
 
