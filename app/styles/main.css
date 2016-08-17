@@ -11,6 +11,10 @@
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
+.winner{
+	color: #88E188;
+}
+
 .gameHasEnded{
     color: black;
     text-decoration: line-through;
