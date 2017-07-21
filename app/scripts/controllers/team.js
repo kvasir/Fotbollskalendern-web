@@ -6,10 +6,17 @@ angular.module('fotbollskalendernWebApp').controller('TeamCtrl', function($scope
   $scope.games = {};
   $scope.isFavourite = false;
   $scope.playerSort = 'jerseyNumber';
+  $scope.currentTab = 'matches';
 
   $scope.updatePlayerSort = function (newSort) {
     if(newSort){
       $scope.playerSort = newSort;
+    }
+  }
+
+  $scope.updateTabs = function(tab) {
+    if(tab) {
+      $scope.currentTab = tab;
     }
   }
 
