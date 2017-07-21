@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<div class="">
+<div>
   <div style="margin-bottom: 30px">
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active" ng-click="updateTabs('matches')"><a aria-controls="profile" role="tab" data-toggle="tab">Upcoming Matches</a></li>
@@ -20,18 +20,18 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12" ng-show="currentTab === 'matches'">
-      <table class="table table-hover">
+    <div class="col-xs-12 table-responsive" ng-show="currentTab === 'matches'">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th class="col-xs-2">Date</th>
-            <th class="col-xs-3">Hometeam</th>
-            <th class="col-xs-3">Awayteam</th>
+            <th class="col-xs-3">Home</th>
+            <th class="col-xs-3">Away</th>
             <th class="col-xs-1">Time</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="hoverPointer" ng-click="matchInfo(game)" ng-repeat="game in games | futureDates |orderBy:'date':false">
+          <tr class="hoverPointer" ng-click="matchInfo(game)" ng-repeat="game in games | futureDates | orderBy:'date':false">
             <td>{{game.date | date:'d MMMM yyyy' }} </td>
             <td ng-class="{'text-primary': game.homeTeamName === teamInformation.name}">{{game.homeTeamName}}</td>
             <td ng-class="{'text-primary': game.awayTeamName === teamInformation.name}">{{game.awayTeamName}}</td>
@@ -40,8 +40,8 @@
         </tbody>
       </table>
     </div>
-    <div class="col-xs-12"  ng-show="currentTab === 'players'">
-      <table class="table table-hover">
+    <div class="col-xs-12 table-responsive" ng-show="currentTab === 'players'">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th class="col-xs-2" ng-click="updatePlayerSort('name')">Name</th>

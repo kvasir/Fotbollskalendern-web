@@ -3,7 +3,7 @@
 angular.module('fotbollskalendernWebApp').controller('TeamCtrl', function($scope, $location, DataService, FavouritesService) {
   var url = $location.search().url;
   $scope.url = url;
-  $scope.games = {};
+  $scope.games = [];
   $scope.isFavourite = false;
   $scope.playerSort = 'jerseyNumber';
   $scope.currentTab = 'matches';
@@ -24,7 +24,6 @@ angular.module('fotbollskalendernWebApp').controller('TeamCtrl', function($scope
   var teamInformation = {};
 
   DataService.getDataFromUrl(url + '/players').then(function(data){
-    console.log(data.players);
     if(data.players) {
       $scope.players = data.players;
     }
