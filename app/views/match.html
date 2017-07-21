@@ -2,10 +2,10 @@
     <div class="col-xs-12">
         <h1> {{match.fixture.date | date:'HH:mm'}} {{match.fixture.homeTeamName}} vs {{match.fixture.awayTeamName}}</h1>
     </div>
-    <div class="col-md-6">
+    <div class="col-xs-6">
         <h4><a href="" ng-click="teamInfo(match.fixture, true)">{{match.fixture.homeTeamName}}</a></h4>
     </div>
-    <div class="col-md-6">
+    <div class="col-xs-6">
         <h4 class="text-right"><a href="" ng-click="teamInfo(match.fixture)">{{match.fixture.awayTeamName}}</a></h4>
     </div>
 </div>
