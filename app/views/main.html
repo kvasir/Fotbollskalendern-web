@@ -1,17 +1,17 @@
 <league-filter></league-filter>
 <div ng-class="{'jumbotron':$first}" class="row" ng-repeat="day in allDays" ng-if="$first || day.games">
     <div class="col-xs-12">
-        <h1 ng-if="allDays[0] !== day">{{ day.date | date:'EEEE' | toSwedishWeekday }}</h1>
-        <h1 ng-if="allDays[0] === day">Idag</h1>
-        <p ng-if="!day.games[0].game"> Inga matcher idag</p>
+        <h1 ng-if="allDays[0] !== day">{{ day.date | date:'EEEE' }}</h1>
+        <h1 ng-if="allDays[0] === day">Today</h1>
+        <p ng-if="!day.games[0].game"> No matches today</p>
         <table class="table table-hover">
             <thead ng-if="allDays[0] !== day">
                 <tr class="text-center">
-                    <th ng-if="includeDate" class="col-xs-2">Datum</th>
-                    <th class="col-xs-1">Tid</th>
-                    <th class="col-xs-3">Hemmalag</th>
-                    <th class="col-xs-3">Bortalag</th>
-                    <th class="col-xs-3 hidden-xs">Liga</th>
+                    <th ng-if="includeDate" class="col-xs-2">Date</th>
+                    <th class="col-xs-1">Time</th>
+                    <th class="col-xs-3">Hometeam</th>
+                    <th class="col-xs-3">Awayteam</th>
+                    <th class="col-xs-3 hidden-xs">League</th>
                 </tr>
             </thead>
             <tbody>

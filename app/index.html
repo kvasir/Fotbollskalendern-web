@@ -36,20 +36,20 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-          <a class="navbar-brand" href="#">Fotbollskalendern</a>
+          <a class="navbar-brand" href="#">The football calendar</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right" shortcuts>
-            <li><a ng-href="#/">Veckans matcher</a></li>
-            <li><a ng-href="#/calendar">30 dagar</a></li>
+            <li><a ng-href="#/">This weeks matches</a></li>
+            <li><a ng-href="#/calendar">30 days</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="leagues" role="button" aria-haspopup="true" aria-expanded="false">Ligor <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="leagues" role="button" aria-haspopup="true" aria-expanded="false">Leagues <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li ng-repeat="league in leagues"><a class="hoverPointer" ng-click="viewLeague(league.name)">{{ league.name }}</a></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="favourites" role="button" aria-haspopup="true" aria-expanded="false">Favoriter <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="favourites" role="button" aria-haspopup="true" aria-expanded="false">Favourites <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li ng-repeat="favourite in favourites"><a class="hoverPointer" ng-click="viewMatch(favourite.url)">{{ favourite.name }}</a></li>
               </ul>
