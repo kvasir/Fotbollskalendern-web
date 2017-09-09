@@ -51,7 +51,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="hoverPointer" ng-click="matchInfo(game)" ng-repeat="player in players | orderBy:playerSort:false">
+          <tr class="hoverPointer" ng-repeat="player in players | orderBy:playerSort:false">
             <td>{{ player.name }}</td>
             <td>{{ player.nationality }}</td>
             <td>{{ player.jerseyNumber }}</td>
