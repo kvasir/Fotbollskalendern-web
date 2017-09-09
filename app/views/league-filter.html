@@ -1,5 +1,13 @@
-<div class="row text-center hidden-xs">
-    <div class="btn-group">
-        <label class="btn btn-default searchButton" ng-class="{'active': (filters.indexOf(league.name) != -1)}" ng-click="filterMatch(league.name)" ng-repeat="league in leagues"> {{ league.name }}</label>
+<div class="row text-center ">
+  <div class="btn-group hidden-xs">
+    <label class="btn btn-default searchButton" ng-class="{'active': (filters.indexOf(league.name) != -1)}" ng-click="filterMatch(league.name)" ng-repeat="league in leagues"> {{ league.name }}</label>
+  </div>
+  <div class="visible-xs accordion" style="margin-top: 28px">
+    <button style="margin-bottom: 10px" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filtersSection" aria-expanded="false" aria-controls="filtersSection">
+    Filters
+  </button>
+    <div class="collapse" id="filtersSection">
+      <label class="btn btn-default searchButton" ng-class="{'active': (filters.indexOf(league.name) != -1)}" ng-click="filterMatch(league.name)" ng-repeat="league in leagues"> {{ league.name }}</label>
     </div>
+  </div>
 </div>
