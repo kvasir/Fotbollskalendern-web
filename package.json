@@ -2,7 +2,7 @@
   "name": "fotbollskalendernweb",
   "version": "0.0.0",
   "dependencies": {
-    "bower": "^1.8.0"
+    "bower": ">=1.8.8"
   },
   "devDependencies": {
     "gulp": "~3.9.1",
